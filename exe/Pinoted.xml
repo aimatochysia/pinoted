@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Assignments\Coding\Java\Pinoted\exe\Pinoted.jar</jar>
+  <outfile>C:\Assignments\Coding\Java\Pinoted\exe\Pinoted.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl></downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>true</restartOnCrash>
+  <manifest></manifest>
+  <icon>C:\Assignments\Coding\Java\Pinoted\icon.ico</icon>
+  <jre>
+    <path>JRE</path>
+    <requiresJdk>true</requiresJdk>
+    <requires64Bit>false</requires64Bit>
+    <minVersion></minVersion>
+    <maxVersion></maxVersion>
+  </jre>
+  <versionInfo>
+    <fileVersion>0.5.0.0</fileVersion>
+    <txtFileVersion>v0.5.0</txtFileVersion>
+    <fileDescription>Pinoted app used for taking notes while making it pinned on your computer</fileDescription>
+    <copyright>Petra Michael</copyright>
+    <productVersion>0.5.0.0</productVersion>
+    <txtProductVersion>v0.5.0</txtProductVersion>
+    <productName>Pinoted</productName>
+    <companyName>Petra Michael</companyName>
+    <internalName>Pinoted</internalName>
+    <originalFilename>Pinoted.exe</originalFilename>
+    <trademarks>Petra Michael</trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <jreNotFoundErr>This application requires a Java Runtime Environment.</jreNotFoundErr>
+    <jreVersionErr>This application requires a Java Runtime Environment</jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
+</launch4jConfig>
