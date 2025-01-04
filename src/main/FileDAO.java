@@ -1,7 +1,7 @@
 package main;
 
 import javax.swing.*;
-import java.awt.Component;
+import java.awt.*;
 import java.io.*;
 import java.nio.file.*;
 

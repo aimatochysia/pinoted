@@ -25,11 +25,15 @@ public class ProjectManager extends JFrame {
         JButton loadProjectButton = new JButton("Load Project");
         loadProjectButton.addActionListener(e -> loadProject());
 
-        JPanel panel = new JPanel();
-        panel.add(newNoteButton);
-        panel.add(saveProjectButton);
-        panel.add(loadProjectButton);
-        add(panel, BorderLayout.SOUTH);
+        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 5, 5));
+        buttonPanel.add(newNoteButton);
+        buttonPanel.add(saveProjectButton);
+        buttonPanel.add(loadProjectButton);
+
+        JScrollPane scrollPane = new JScrollPane(buttonPanel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+                JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        add(scrollPane, BorderLayout.CENTER);
     }
 
     private void addNotepadApp() {
@@ -66,7 +70,7 @@ public class ProjectManager extends JFrame {
                     try {
                         NotepadState state = (NotepadState) in.readObject();
                         NotepadApp note = new NotepadApp();
-                        note.restoreFromState(state);
+                        note.restoreFromState(state); // Restore from saved state
                         note.setVisible(true);
                         notepadApps.add(note);
                     } catch (EOFException e) {

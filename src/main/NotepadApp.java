@@ -31,7 +31,7 @@ public class NotepadApp extends JFrame implements Serializable {
 
         notepadService.addSettingsObserver(this::applySettings);
     }
-    
+
     private void setAppIcon(String iconPath) {
         Image icon = Toolkit.getDefaultToolkit().getImage(iconPath);
         setIconImage(icon);
