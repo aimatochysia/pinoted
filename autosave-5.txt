@@ -1,0 +1,44 @@
+-SOLID: Single, Open, Liskov, Interface, Dependency
+
+S-Single Responsibility Principle: satu class harus punya satu responsibility saja
+
+O-Open Close Principle: class harus open untuk di extend/inherit laen, tapi gabisa dimodif. Aka daripada dihandle 1 1, lebih baik buat parent classnya yang diimplement childnya tadi, sehingga ketika dicall gausah pake if elif else, cukup panggil abstractParent.method()
+
+L-Liskov Substitution Principle (LSP): ketika program memakai parent class, program juga harus bisa memakai child class tanpa mengetahui perbedaanya.
+
+I-Interface Segregation Principle: suatu child tidak usah mengimplement / override method parent bila tidak dibutuhan.
+
+D-Dependency Inversion principle: high level (abstracted) jangan depend ke low level module, keduanya harus depend ke abstraksi; tldr details harus depend ke abstraksi buakn sebaliknya
+
+
+
+Design pattern terdiri dari 4 elemen:
+-name: nama mendeskripsikan desain pattern 
+-problem: kapan design pattern diapply
+-solusi: merupakan deskripsi abstrak dari problem desain dan general use untuk memperbaikinya
+-konseksuensi: hasil dan trade-off dari mengapply patternnya.
+
+
+3 Jenis pattern:
+-Creational: fokus pada proses pembuatan objek (Factory, Prototype)
+-Structural: komposisi dan organisasi inheritance objek yang membentuk struktur yang lebih besar (Adapter)
+-Behavioural: komunikasi dan interaksi antar objek(Strategy, Oberver, State, Template)
+
+
+Design Pattern Principle:
+-Interface & Abstraction: Mengdefinisikan suatu kontrak yang kelas lain dapat mengimplement, menspesifikasi method yang suatu kelas harus punyai. Pendekatan menggunakan interface memperbolehkan polymorphism dimana berbagai class dapat digunakan secara bergantian selama mengikuti aturan interface.
+
+-Composition: Merupakan pembangun objek kompleks dengan menggabungkan beberapa objek yang lebih simple, fokus terhadap relasi “has-a” daripada relasi “is-a” Hal ini mengakibatkan loose coupling sehingga mempermudahkan mengubah suatu objek tanpa mempengaruhi objek/class lainnya. 
+
+-Delegation: Merupakan perantara antar objek daripada dihandle sendiri. Biasanya digunakan untuk mendistribusikan reponsibilitas suatu class, gunanya untuk memudahkan menulis variasi behaviour tanpa mengubah kode source delegatornya.
+
+
+
+Perbedaan Design Pattern dan Framework:
+-Design Pattern adalah elemen architecture yang lebih kecil dan lebih abstrak dan general dibanding framework, sehingga lebih fleksibel dan reusable. Design pattern merupakan guideline penulisan kode.
+
+-Framework adalah koleksi dari library/ reusable code sebagai fondasi membangun aplikasi. Mempunyai banyak komponen yang sudah di pre-written. Framework mendefinisikan stuktur aplikasi dan mengontrol flow program. Framework harus ditulis kodenya mengikuti konensi dan aturan framework.
+
+
+
+

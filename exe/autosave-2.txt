@@ -1,0 +1,15 @@
+1. Docker is a platform for developing shipping and running application inside containers.
+containers is an isolated environment that includes everything to run the program
+
+1.1. porject example uses backend (server) and frontend for chatting
+
+2. advantage of using docker
+-consistency no longer "works on my machine"
+-easy deployment & scalabilit, each service -frotnend/backend work in its own container, managed independently (for example running multipel frontend on 1 backend)
+-docker compose automate setup of multiple container, no longer manual build
+-cross platform, windows macos or linux ready
+
+3.weakness:
+-learning curve, initial setup complex, but easy on the long run after steep learning curve at start
+
+-docker container lightweight by using host's 

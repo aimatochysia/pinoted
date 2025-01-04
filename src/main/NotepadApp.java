@@ -13,10 +13,12 @@ public class NotepadApp extends JFrame implements Serializable {
     public NotepadApp() {
         setTitle("Pinoted");
         setAppIcon("icon.png");
-        setSize(800, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(300, 300);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         notepadService = NotepadService.getInstance();
         textArea = new JTextArea();
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
         applySettings();
 
         add(new JScrollPane(textArea), BorderLayout.CENTER);
@@ -26,8 +28,7 @@ public class NotepadApp extends JFrame implements Serializable {
         add(alwaysOnTopCheckbox, BorderLayout.NORTH);
 
         createMenuBar();
-        
-        notepadService.startAutosave(() -> textArea.getText());
+
         notepadService.addSettingsObserver(this::applySettings);
     }
     
@@ -40,6 +41,7 @@ public class NotepadApp extends JFrame implements Serializable {
         textArea.setFont(notepadService.getSettings().getFont());
         textArea.setForeground(notepadService.getSettings().getTextColor());
         textArea.setBackground(notepadService.getSettings().getBackgroundColor());
+        textArea.setCaretColor(notepadService.getSettings().isLightMode() ? Color.BLACK : Color.WHITE);
     }
 
     private void createMenuBar() {
@@ -47,41 +49,37 @@ public class NotepadApp extends JFrame implements Serializable {
         JMenu fileMenu = new JMenu("File");
 
         JMenuItem saveItem = new JMenuItem("Save");
-        saveItem.addActionListener(e -> notepadService.saveFile(this, textArea.getText()));
+        saveItem.addActionListener(e -> saveCurrentNote());
         fileMenu.add(saveItem);
 
         JMenuItem loadItem = new JMenuItem("Load");
-        loadItem.addActionListener(e -> textArea.setText(notepadService.loadFile(this)));
+        loadItem.addActionListener(e -> loadCurrentNote());
         fileMenu.add(loadItem);
 
         menuBar.add(fileMenu);
-        JMenu settingsMenu = new JMenu("Settings");
-        JMenuItem settingsItem = new JMenuItem("Font & Color Settings");
-        settingsItem.addActionListener(e -> new SettingsDialog(this, notepadService.getSettings(), notepadService::updateSettings));
-        settingsMenu.add(settingsItem);
-
-        menuBar.add(settingsMenu);
-        JToggleButton modeToggle = new JToggleButton("Light Mode");
-        modeToggle.addActionListener(e -> {
-            if (modeToggle.isSelected()) {
-                notepadService.getSettings().applyLightMode();
-                modeToggle.setText("Light Mode");
-            } else {
-                notepadService.getSettings().applyNightMode();
-                modeToggle.setText("Night Mode");
-            }
-            notepadService.getSettings().setOverrideMode(true);
-            applySettings();
-        });
-        menuBar.add(modeToggle);
-
         setJMenuBar(menuBar);
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            NotepadApp app = new NotepadApp();
-            app.setVisible(true);
-        });
+    private void saveCurrentNote() {
+        notepadService.getFileDAO().saveFile(this, textArea.getText());
+    }
+
+    private void loadCurrentNote() {
+        textArea.setText(notepadService.getFileDAO().loadFile(this));
+    }
+
+    public String getText() {
+        return textArea.getText();
+    }
+
+    public boolean isNoteAlwaysOnTop() {
+        return alwaysOnTopCheckbox.isSelected();
+    }
+
+    public void restoreFromState(NotepadState state) {
+        textArea.setText(state.getText());
+        setBounds(state.getX(), state.getY(), state.getWidth(), state.getHeight());
+        setAlwaysOnTop(state.isAlwaysOnTop());
+        alwaysOnTopCheckbox.setSelected(state.isAlwaysOnTop());
     }
 }

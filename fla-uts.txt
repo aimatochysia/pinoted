@@ -26,11 +26,9 @@ Design pattern terdiri dari 4 elemen:
 
 
 Design Pattern Principle:
--Interface & Abstraction: Mengdefinisikan suatu kontrak yang kelas lain dapat mengimplement, menspesifikasi method yang suatu kelas harus punyai. Pendekatan menggunakan interface memperbolehkan polymorphism dimana berbagai class dapat digunakan secara bergantian selama mengikuti aturan interface.
-
--Composition: Merupakan pembangun objek kompleks dengan menggabungkan beberapa objek yang lebih simple, fokus terhadap relasi “has-a” daripada relasi “is-a” Hal ini mengakibatkan loose coupling sehingga mempermudahkan mengubah suatu objek tanpa mempengaruhi objek/class lainnya. 
-
--Delegation: Merupakan perantara antar objek daripada dihandle sendiri. Biasanya digunakan untuk mendistribusikan reponsibilitas suatu class, gunanya untuk memudahkan menulis variasi behaviour tanpa mengubah kode source delegatornya.
+-Interface & Abstraction
+-Composition
+-Delegation
 
 
 

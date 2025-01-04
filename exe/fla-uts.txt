@@ -1,0 +1,9 @@
+single responsibility: 
+satu class handle semua
+
+satu class harus punya
+satu responsibility saja
+
+class harus open untuk di
+extend/inherit laen, tapi
+gabisa dimodif

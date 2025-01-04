@@ -6,7 +6,7 @@ public class NotepadSettings {
     private Color textColor;
     private Color backgroundColor;
     private boolean overrideMode;
-
+    private boolean lightmode;
     public NotepadSettings() {
         this.font = new Font("Monospaced", Font.PLAIN, 12);
         applyLightMode();
@@ -39,14 +39,19 @@ public class NotepadSettings {
     public void applyLightMode() {
         this.textColor = Color.BLACK;
         this.backgroundColor = Color.WHITE;
+        this.lightmode = true;
     }
 
     public void applyNightMode() {
         this.textColor = Color.WHITE;
         this.backgroundColor = Color.DARK_GRAY;
+        this.lightmode = false;
     }
 
     public void setOverrideMode(boolean overrideMode) {
         this.overrideMode = overrideMode;
+    }
+    public boolean isLightMode() {
+        return lightmode;
     }
 }

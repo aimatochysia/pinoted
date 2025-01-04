@@ -1,12 +1,11 @@
 package main;
-import javax.swing.*;
 
+import javax.swing.*;
 import java.awt.Component;
 import java.io.*;
 import java.nio.file.*;
 
 public class FileDAO {
-    private int autosaveIndex = 1;
 
     public void saveFile(Component parent, String content) {
         String fileName = JOptionPane.showInputDialog(parent, "Enter file name to save:");
@@ -30,15 +29,5 @@ public class FileDAO {
             }
         }
         return "";
-    }
-
-    public void autosave(String content) {
-        try {
-            String fileName = "autosave-" + autosaveIndex + ".txt";
-            Files.write(Paths.get(fileName), content.getBytes());
-            autosaveIndex = (autosaveIndex % 5) + 1;
-        } catch (IOException ex) {
-            System.err.println("Error during autosave: " + ex.getMessage());
-        }
     }
 }

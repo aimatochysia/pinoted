@@ -31,15 +31,6 @@ public class SettingsDialog extends JDialog implements Serializable {
             }
         });
 
-        JButton backgroundColorButton = new JButton("Choose Background Color");
-        backgroundColorButton.addActionListener(e -> {
-            Color color = JColorChooser.showDialog(this, "Choose Background Color", settings.getBackgroundColor());
-            if (color != null) {
-                settings.setBackgroundColor(color);
-                settings.setOverrideMode(false);
-            }
-        });
-
         JButton applyButton = new JButton("Apply");
         applyButton.addActionListener(e -> {
             settings.setFont(new Font((String) fontTypeCombo.getSelectedItem(), Font.PLAIN, Integer.parseInt(fontSizeField.getText())));
@@ -53,8 +44,6 @@ public class SettingsDialog extends JDialog implements Serializable {
         add(fontSizeField);
         add(new JLabel("Text Color:"));
         add(textColorButton);
-        add(new JLabel("Background Color:"));
-        add(backgroundColorButton);
         add(applyButton);
 
         setVisible(true);

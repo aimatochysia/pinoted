@@ -1,0 +1,29 @@
+1. Docker is a platform for developing shipping and running application inside containers.
+containers is an isolated environment that includes everything to run the program
+
+1.1. porject example uses backend (server) and frontend for chatting
+
+2. advantage:
+-consistency no longer "works on my machine"
+-easy deployment & scalabilit, each service -frotnend/backend work in its own container, managed independently (for example running multipel frontend on 1 backend)
+-docker compose automate setup of multiple container, no longer manual build
+-cross platform, windows macos or linux ready
+
+3.weakness:
+-learning curve, initial setup complex, but easy on the long run after steep learning curve at start
+
+-docker container lightweight by using host's kernel (so shared resources) and so reduced performance on massive task
+
+-network complexity sometimes require proper config
+
+-no gui, so less accustomed people need to learn text and logs reading
+
+-no data persistance, logs of anything data related must be stored in a persistent db like docker volume or external db
+
+4. conclusion
++portability: easy deploy compatible
++efficieny of updating per container
++isolation interference / failure from shared access reduced
+-steep learning curve at the beginning
+-no gui
+-complex network setup issue

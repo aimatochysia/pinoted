@@ -1,0 +1,10 @@
+7 elemen identifier process:
+-identifier
+-state
+-priority
+-program counter
+-memory pointer
+-context data
+-i/o status info
+-accounting information
+
