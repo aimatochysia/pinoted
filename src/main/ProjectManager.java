@@ -15,7 +15,8 @@ public class ProjectManager extends JFrame {
         setSize(300, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         notepadApps = new ArrayList<>();
-
+        setTitle("Pinoted Projects");
+        setAppIcon("icon.png");
         JButton newNoteButton = new JButton("New Notepad");
         newNoteButton.addActionListener(e -> addNotepadApp());
 
@@ -82,6 +83,10 @@ public class ProjectManager extends JFrame {
                 JOptionPane.showMessageDialog(this, "Error loading project: " + ex.getMessage());
             }
         }
+    }
+    private void setAppIcon(String iconPath) {
+        Image icon = Toolkit.getDefaultToolkit().getImage(iconPath);
+        setIconImage(icon);
     }
 
     public static void main(String[] args) {
